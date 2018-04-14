@@ -5,8 +5,6 @@ const clear = require("clear");
 
 const args = process.argv.slice(2);
 
-
-
 clear();
 mysql.createConnection({
 	host: "localhost",
@@ -14,30 +12,29 @@ mysql.createConnection({
 	password: "Samueljh1",
 	database: "bamazon"
 }).then((conn) => {
-	switch(args[0]){	
+	switch (args[0]) {
 
 		default:
 		case "customer":
-			console.log(chalk.blue("\nAll products\n------------" + 
-				"------------"))
+			console.log(chalk.blue("\nAll products\n------------" +
+				"------------"));
 			conn.query("SELECT * FROM products")
-				.then(res => {
-					res.forEach(value => {
-						console.log(`
+			.then(res => {
+				res.forEach(value => {
+					console.log(`
 id: ${value.id}:
 	name: ${value.name}
 	department: ${value.department}
 	price: ${value.price}
 	in-stock: ${value.stock}
-						`);
-					})
-					console.log(chalk.blue("------------" +
-						"------------"));
+					`);
 				})
-				.catch(err => console.log(err))
+			console.log(chalk.blue("------------" +
+				"------------"));
+		})
+		.catch(err => console.log(err))
 
-			break;
+		break;
 	}
 	conn.end();
 })
-	
