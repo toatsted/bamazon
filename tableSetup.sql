@@ -15,11 +15,6 @@ insert into products(
 	price,
 	stock
 )values
-	("banana", "grocery", .33, 99),
-	("hot wheels", "toy", 2.48, 25),
-	("pillow", "bedding", 10.99, 72),
-	("rubiks cube", "toy", 4.95, 20),
-	("comforter", "bedding", 50.15, 10),
-	("keanu reeves action figure", "toy", 9999.99, 99);
+	();
 
 select * from products;

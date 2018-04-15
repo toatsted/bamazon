@@ -4,7 +4,7 @@
   "description": "Fake amazon",
   "main": "index.js",
   "scripts": {
-    "test": "node index customer -r"
+    "test": "echo 'you idiot theres no test script'"
   },
   "repository": {
     "type": "git",

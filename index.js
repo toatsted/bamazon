@@ -2,10 +2,12 @@ const mysql = require("promise-mysql");
 const clear = require("clear");
 
 const customer = require("./lib/customer.js");
+const manager = require("./lib/manager.js");
 
 const args = process.argv.slice(2);
 
 clear();
+console.log();
 mysql.createConnection({
 	host: "localhost",
 	user: "root",
@@ -15,25 +17,14 @@ mysql.createConnection({
 	switch (args[0]) {
 
 		default:
+		case "manager":
+		case "-m":
+			manager(conn);
+			break;	
+
 		case "customer":
-
-			switch(args[1]){
-				case "-r":
-
-					conn.query("SELECT * FROM products")
-						.then(res => {
-							console.log(JSON.stringify(res, null, 2));
-							conn.end();
-						})
-						.catch(err => console.log(err))
-					break;
-
-				default:
-
-					customer(conn);
-					break;	
-			}
+		case "-c":
+			customer(conn);
 			break;
 	}
-
 })
