@@ -1,7 +1,7 @@
 const mysql = require("promise-mysql");
-const inquirer = require("inquirer");
-const chalk = require("chalk");
 const clear = require("clear");
+
+const customer = require("./lib/customer.js");
 
 const args = process.argv.slice(2);
 
@@ -16,25 +16,24 @@ mysql.createConnection({
 
 		default:
 		case "customer":
-			console.log(chalk.blue("\nAll products\n------------" +
-				"------------"));
-			conn.query("SELECT * FROM products")
-			.then(res => {
-				res.forEach(value => {
-					console.log(`
-id: ${value.id}:
-	name: ${value.name}
-	department: ${value.department}
-	price: ${value.price}
-	in-stock: ${value.stock}
-					`);
-				})
-			console.log(chalk.blue("------------" +
-				"------------"));
-		})
-		.catch(err => console.log(err))
 
-		break;
+			switch(args[1]){
+				case "-r":
+
+					conn.query("SELECT * FROM products")
+						.then(res => {
+							console.log(JSON.stringify(res, null, 2));
+							conn.end();
+						})
+						.catch(err => console.log(err))
+					break;
+
+				default:
+
+					customer(conn);
+					break;	
+			}
+			break;
 	}
-	conn.end();
+
 })
