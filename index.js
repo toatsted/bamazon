@@ -16,12 +16,12 @@ mysql.createConnection({
 }).then((conn) => {
 	switch (args[0]) {
 
-		default:
 		case "manager":
 		case "-m":
 			manager(conn);
 			break;	
 
+		default:
 		case "customer":
 		case "-c":
 			customer(conn);
