@@ -4,7 +4,7 @@
   "description": "Fake amazon",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'you idiot theres no test script'"
+    "test": "echo 'you idiot theres no test script'",
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "dependencies": {
     "chalk": "^2.3.2",
     "clear": "^0.1.0",
+    "console.table": "^0.10.0",
     "fs-extra": "^5.0.0",
     "inquirer": "^5.2.0",
     "promise-mysql": "^3.2.1"
