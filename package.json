@@ -1,7 +1,7 @@
 {
   "name": "bamazon",
   "version": "1.0.0",
-  "description": "Fake amazon",
+  "description": ".",
   "main": "index.js",
   "scripts": {
     "test": "echo 'you idiot theres no test script'"
