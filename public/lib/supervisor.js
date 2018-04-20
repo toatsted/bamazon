@@ -38,6 +38,7 @@ module.exports = function(conn){
 										res.forEach(val => {
 											if(key === val.name)
 												val.sales = sales[key];
+												val.total = val.sales - val.overhead;
 										})
 									}
 									console.log();
