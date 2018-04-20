@@ -3,6 +3,8 @@ const inquirer = require("inquirer");
 
 const helpers = require("./helpers.js");
 
+let cart = [];
+
 module.exports = function (conn){
 	console.log(chalk.blue("All products"));
 	conn.query(`SELECT * FROM products`)
